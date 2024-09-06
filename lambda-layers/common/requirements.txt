@@ -1,0 +1,5 @@
+fastapi==0.99.0
+mangum==0.17.0
+jsonschema==4.17.3
+pydantic>=1.7.4
+python-ulid==2.2.0

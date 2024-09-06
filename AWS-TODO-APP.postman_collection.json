@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "94bc181f-6034-4920-a860-9c4391556c73",
+		"name": "AWS-TODO-APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11256973"
+	},
+	"item": [
+		{
+			"name": "v1/todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationToken}}",
+						"description": "Used for Cognito Auth"
+					}
+				],
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos?user_email={{USER_EMAIL}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "{{USER_EMAIL}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/todos/{todo_id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationToken}}",
+						"description": "Used for Cognito Auth"
+					}
+				],
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos/{{TODO_ID}}?user_email={{USER_EMAIL}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos",
+						"{{TODO_ID}}"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "{{USER_EMAIL}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/todos/{tests}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationToken}}",
+						"description": "Used for Cognito Auth"
+					}
+				],
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos/:todo_ulid?user_email={{USER_EMAIL}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos",
+						":todo_ulid"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "{{USER_EMAIL}}"
+						}
+					],
+					"variable": [
+						{
+							"key": "todo_ulid",
+							"value": "01HYQ55BG5Q6ZXZQMSMAGNB8MN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/todos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// {\n//     \"user_email\": \"{{USER_EMAIL}}\",\n//     \"todo_title\": \"Finish Repository XYZ\",\n//     \"todo_details\": \"Finsh a specific repository XYZ\",\n//     \"todo_date\": \"2024-04-22\"\n// }\n\n{\n    \"user_email\": \"{{USER_EMAIL}}\",\n    \"todo_title\": \"Study Architecture\",\n    \"todo_details\": \"Keep studying architecture patterns\",\n    \"todo_date\": \"2024-12-31\"\n}\n\n// 01HPG97F4KEJTYD54HYQHZWSMG\n// 01HPX4X29G89V4K1V6KAA10E25\n// 01HYHKMAZ2QAVZSNZ4DQ5DS8SR\n// 01HYHKPDTDBDZVM0K80J0T9K6G\n// 01HYHM7YMCXZ6FZ61TM56ZQVPP\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/todos/{todo_id}",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationToken}}",
+						"description": "Used for Cognito Auth"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"todo_title\": \"Exercise Gym\",\n    \"todo_details\": \"Some updated content\",\n    \"todo_date\": \"2024-03-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos/{{TODO_ID}}?user_email={{USER_EMAIL}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos",
+						"{{TODO_ID}}"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "{{USER_EMAIL}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/todos/{tests}",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationToken}}",
+						"description": "Used for Cognito Auth"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    // \"todo_title\": \"Another Title Book 3\",\n    // \"todo_details\": \"Go to the gym to do 1 hour of exercise\",\n    \"todo_date\": \"2025-10-10\"\n    // \"is_done\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos/:todo_id?user_email={{USER_EMAIL}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos",
+						":todo_id"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "{{USER_EMAIL}}"
+						}
+					],
+					"variable": [
+						{
+							"key": "todo_id",
+							"value": "01HYQ55BG5Q6ZXZQMSMAGNB8MN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/todos/{todo_id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationToken}}",
+						"description": "Used for Cognito Auth"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_email\": \"{{USER_EMAIL}}\",\n    \"todo_title\": \"Exercise Gym\",\n    \"todo_details\": \"Go to the gym to do 1 hour of exercise\",\n    \"todo_date\": \"2024-03-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos/{{TODO_ID}}?user_email={{USER_EMAIL}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos",
+						"{{TODO_ID}}"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "{{USER_EMAIL}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/todos/{tests}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Correlation-ID",
+						"value": "{{HEADER_CORRELATION_ID}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{AuthorizationToken}}",
+						"description": "Used for Cognito Auth"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    // \"todo_title\": \"Another Title Book 3\",\n    // \"todo_details\": \"Go to the gym to do 1 hour of exercise\",\n    // \"todo_date\": \"2024-03-01\",\n    \"is_done\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/todos/:todo_id?user_email={{USER_EMAIL}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"todos",
+						":todo_id"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "{{USER_EMAIL}}"
+						}
+					],
+					"variable": [
+						{
+							"key": "todo_id",
+							"value": "01HYHKMAZ2QAVZSNZ4DQ5DS8SR"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{API_KEY}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

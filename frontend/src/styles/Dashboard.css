@@ -1,0 +1,40 @@
+#root {
+  margin: auto;
+  padding: rem;
+  text-align: center;
+}
+
+.main-box {
+  padding-top: 20px;
+  /* margin: 0; */
+  /* display: flex; */
+  place-items: center;
+  min-width: 920px;
+  color: white;
+}
+
+.logo {
+  height: 20em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.card {
+  margin: 1em;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 0.5em 0.3em #000000aa;
+  transition: transform 300ms;
+}
+
+.list-group {
+  width: 100%;
+}
